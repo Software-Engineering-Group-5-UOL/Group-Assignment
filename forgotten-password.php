@@ -64,12 +64,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <body>
                             <h2>Hello $usr_fname</h2>
                             <p>A password reset has been requested on your account.</p>
-                            <a href=https://$domain/forgotten.php?key=$verifykey>Click here to reset your password</a>
+                            <a href=https://software.ryangrange.co.uk/forgotten.php?key=$verifykey>Click here to reset your password</a>
                             <p>If this was not requested by you, please disregard this email.</p>                            
                             </body>
                             </html>
                             ";
-                $headers = "From: 418d Accounts <accounts@2dev.xyz>" . "\r\n";
+                $headers = "From: Headline Music <headlinemusicapp.co.uk>" . "\r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 
@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" class="btn btn-primary" value="Send Code">
             </div>
         </form>
-            <p>Already know your password? <a href="login.php">Login here</a>.</p>
+            <p>Already know your password? <a href="index.php">Login here</a>.</p>
             <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
 
         

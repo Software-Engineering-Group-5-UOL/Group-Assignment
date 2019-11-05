@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             </body>
                             </html>
                             ";
-                $headers = "From: Headline Music <headlinemusicapp.co.uk>" . "\r\n";
+                $headers = "From: Headline Music <accounts@headlinemusicapp.co.uk>" . "\r\n";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 

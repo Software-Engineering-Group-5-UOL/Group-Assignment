@@ -136,7 +136,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 <div class="ice-panel">
-    <h1 class="title text-center">Log in</h1>
+    <h1 class="title text-center">Sign Up</h1>
     <table>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
         <tr>
@@ -176,7 +176,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="reset" class="btn sign-up-btn" value="Reset">
         </div>
         </tr>
-        <p>Already have an account? <a href="login.php">Login here</a>.</p>
+        <p>Already have an account? <a href="login.php" class="text-white">Login here</a>.</p>
     </form>
     </table>
 </div>

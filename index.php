@@ -1,6 +1,6 @@
 <?php
-require_once('header/db.php');
-require_once('header/login.php');
+require_once('headers/db.php');
+require_once('headers/login.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

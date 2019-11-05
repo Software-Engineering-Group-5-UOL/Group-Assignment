@@ -137,8 +137,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 <div class="ice-panel">
     <h1 class="title text-center">Sign Up</h1>
-    <table>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
+    <table>
         <tr>
         <div class="form-group <?php echo (!empty($usr_fname_err)) ? 'has-error' : ''; ?>">
             <input type="text" name="usr_fname" class="form-control" value="<?php echo $usr_fname; ?>" placeholder="First Name">
@@ -177,8 +177,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         </tr>
         <p class="text-center">Already have an account? <a href="index.php" class="text-white">Login here</a>.</p>
-    </form>
     </table>
+    </form>
 </div>
 <?php
 include_once 'pageelements/footer.php';

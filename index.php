@@ -1,51 +1,16 @@
 <?php
-require_once('headers/db.php');
-require_once('headers/login.php');
+include "pageelements/header.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Spotify Tracks – Headline Music</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-    <meta property="og:title" content="Headline Music" />
-    <meta property="og:url" content="https://software.ryangrange.co.uk/" />
-    <meta property="og:locale" content="en_GB" />
-    <meta property="og:description" content="Our artifact from the software engineering module." />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header role="banner">
-        <nav class="navbar container">
-            <div class="navbar-brand" href="#">Headline Music</div>
-        </nav>
-    </header>
-    <main class="container">
-        <section class="wrapper">
-            <div class="ice-panel">
-                <h1 class="title text-center">Log in</h1>
-                <form action="/track.php" method="post">
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username or Email address">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn login-btn"></input>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p class="float-left">Created by Software Engineering Group 5.</p>
-            <p class="float-right">© <?php date('Y') ?> Headline Music App.</p>
-        </div>
-    </footer>
-</body>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <title>Manage.camp</title>
+    </head>
+    <body>
+        <a href=login.php>Login</a>
+    </body>
 </html>
+<?php
+include "pageelements/footer.php";
+?>

@@ -15,7 +15,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 }
 
-$nrSongs = ($_GET['s']) ? $_GET['s'] : 5;
+$nrSongs = (isset($_GET['s'])) ? $_GET['s'] : 5;
 ?>
 <!DOCTYPE html>
 <html lang="en">

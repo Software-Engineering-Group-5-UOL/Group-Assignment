@@ -5,7 +5,7 @@ include "pageelements/header.php";
 <html>
     <head>
     <meta charset="utf-8"/>
-    <title>Manage.camp</title>
+    <title>Headline Music</title>
     </head>
     <body>
         <a href=login.php>Login</a>

@@ -75,8 +75,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 $_SESSION["usr_fname"] = $usr_fname;
                                 $_SESSION["usr_lname"] = $usr_lname;
                                 
-                                // Redirect user to welcome page
-                                header("location: welcome.php");
+                                // Redirect user to tracks page
+                                header("location: tracks.php");
                             } else{
                                 // Display an error message if password is not valid
                                 $usr_password_err = "The password you entered was not valid.";

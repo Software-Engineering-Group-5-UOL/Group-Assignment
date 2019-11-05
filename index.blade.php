@@ -23,8 +23,7 @@ require_once('header/login.php');
         <section class="wrapper">
             <div class="ice-panel">
                 <h1 class="title text-center">Log in</h1>
-                <form action="/track" method="post">
-                    @csrf
+                <form action="/track.php" method="post">
                     <div class="form-group">
                         <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username or Email address">
                     </div>

@@ -83,11 +83,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             }
 
                         } elseif($verified == 0){
-                            echo '<h1>Your account has not been verified. Please verify your account from the email sent to you</h1>';
+                            $error = '<h1 class="text-center">Your account has not been verified. Please verify your account from the email sent to you</h1>';
                         
                             
                         } elseif($verified == 2){
-                            echo '<h1>Your account has been banned for misuse of the site</h1>';
+                            $error = '<h1 class="text-center">Your account has been banned for misuse of the site</h1>';
                         }
                     }
                 } else{
@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $usr_email_err = "No account found with that email.";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                $error = "<h3 class='text-center'>Oops! Something went wrong. Please try again later.</h3>";
             }
         }
         
@@ -109,6 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 <div class="ice-panel">
     <h1 class="title text-center">Log in</h1>
+    <?php $error ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
             <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>" placeholder="Email address">

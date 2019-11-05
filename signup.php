@@ -123,7 +123,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Redirect to login page
                 header("location: index.php?account=1");
             } else{
-                echo "Something went wrong. Please try again later.";
+                $error = "<h3 class='text-center'>Something went wrong. Please try again later.</h3>";
             }
         }
         
@@ -137,6 +137,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 <div class="ice-panel">
     <h1 class="title text-center">Sign Up</h1>
+    <?php $error ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
         <table>
             <tr>

@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <body>
                             <h2>Welcome $usr_fname</h2>
                             <p>To use your account you need to verify that this email belongs to you</p>
-                            <a href=https://$domain/verify.php?verify=$verifykey>Click here to verify</a>
+                            <a href=https://software.ryangrange.co.uk/verify.php?verify=$verifykey>Click here to verify</a>
                             </body>
                             </html>
                             ";
@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mail($to,$subject,$message,$headers);
                 
                 // Redirect to login page
-                header("location: login.php?account=1");
+                header("location: index.php?account=1");
             } else{
                 echo "Something went wrong. Please try again later.";
             }

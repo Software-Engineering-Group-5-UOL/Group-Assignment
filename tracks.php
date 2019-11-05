@@ -30,7 +30,7 @@ $nrSongs = (isset($_GET['s'])) ? $_GET['s'] : 5;
         </li>
       </ul>
     </nav>
-    <?php for($i = 0 ; $i < $nrSongs ; $i++) ?>
+    <?php for($i = 0 ; $i < $nrSongs ; $i++): ?>
     <div class="ice-panel d-flex mb-3">
         <div class="song-img-wrapper d-flex" title="Song Name or Album Here">
             <img class="song-img" src="images/blank.png" alt="">
@@ -41,7 +41,7 @@ $nrSongs = (isset($_GET['s'])) ? $_GET['s'] : 5;
             <h4>Name of the Artist</h4>
         </div>
     </div>
-    <?php endfor ?>
+    <?php endfor; ?>
 </div>
 <?php
 include_once 'pageelements/footer.php';

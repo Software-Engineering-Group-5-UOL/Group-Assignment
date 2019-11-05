@@ -1,5 +1,5 @@
 <?php
-require_once('headers/db.php');
+require_once('php/db.php');
 $nrSongs = ($_GET['s']) ? $_GET['s'] : 5;
 ?>
 <!DOCTYPE html>

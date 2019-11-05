@@ -127,7 +127,7 @@ main .sign-up-btn {
     color: white!important;
     padding: 12px 24px;
     border-radius: 400px!important;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 main .sign-up-btn:hover {
     background-color: black;

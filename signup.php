@@ -176,7 +176,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="reset" class="btn sign-up-btn" value="Reset">
         </div>
         </tr>
-        <p>Already have an account? <a href="login.php" class="text-white">Login here</a>.</p>
+        <p class="text-center">Already have an account? <a href="index.php" class="text-white">Login here</a>.</p>
     </form>
     </table>
 </div>

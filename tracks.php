@@ -11,10 +11,7 @@ session_start();
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
-    
-
 }
-
 $nrSongs = (isset($_GET['s'])) ? $_GET['s'] : 5;
 ?>
 <div class="track-wrapper">

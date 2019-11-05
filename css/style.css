@@ -101,6 +101,9 @@ main form .form-control {
 main form .form-control:focus {
     box-shadow: 0 0 0 0.2rem #ffffff8c!important;
 }
+main .help-block {
+    color: white;
+}
 main .login-btn {
 	width: 40%;
 	margin: 0 auto;
@@ -114,6 +117,20 @@ main .login-btn {
 }
 main .login-btn:hover {
     background-color: #f38d74;
+}
+main .sign-up-btn {
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 0!important;
+    background-color: #f38d74;
+    color: white!important;
+    padding: 12px 24px;
+    border-radius: 400px!important;
+    margin-top: 30px;
+}
+main .sign-up-btn:hover {
+    background-color: black;
 }
 main .form-control::-webkit-input-placeholder { /* Internet Explorer */
   color: white;

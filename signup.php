@@ -1,7 +1,7 @@
 <?php
 // Include config file
-include 'pageelements/header.php';
 require "php/db.php";
+include_once 'pageelements/header.php';
 
 // Define variables and initialize with empty values
 $usr_email = $usr_password = $confirm_password = $usr_fname = $usr_lname = "";
@@ -135,71 +135,51 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-</head>
-<body>
-    <div align="center">
-        <h2>Sign Up</h2>
-        <p>Create Your Account</p>
+<div class="ice-panel">
+    <h1 class="title text-center">Log in</h1>
+    <table>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
+        <tr>
+        <div class="form-group <?php echo (!empty($usr_fname_err)) ? 'has-error' : ''; ?>">
+            <input type="text" name="usr_fname" class="form-control" value="<?php echo $usr_fname; ?>" placeholder="First Name">
+            <span class="help-block"><?php echo $usr_fname_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($lanem_err)) ? 'has-error' : ''; ?>">
+            <input type="text" name="usr_lname" class="form-control" value="<?php echo $usr_lname; ?>" placeholder="Last Name">
+            <span class="help-block"><?php echo $usr_lname_err; ?></span>
+        </div>
+        </tr>
         
-        <table>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            
-            <tr>
-            <div class="form-group <?php echo (!empty($usr_fname_err)) ? 'has-error' : ''; ?>">
-                <label>First Name</label>
-                <input type="text" name="usr_fname" class="form-control" value="<?php echo $usr_fname; ?>">
-                <span class="help-block"><?php echo $usr_fname_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($lanem_err)) ? 'has-error' : ''; ?>">
-                <label>Last Name</label>
-                <input type="text" name="usr_lname" class="form-control" value="<?php echo $usr_lname; ?>">
-                <span class="help-block"><?php echo $usr_lname_err; ?></span>
-            </div>
-            </tr>
-            
-            <tr>
-            <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
-                <label>Email Address</label>
-                <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>">
-                <span class="help-block"><?php echo $usr_email_err; ?></span>
-            </div>
-            </tr>
-            
-            <tr>
-            <div class="form-group <?php echo (!empty($usr_password_err)) ? 'has-error' : ''; ?>">
-                <label>Create Password</label>
-                <input type="password" name="usr_password" class="form-control" value="<?php echo $usr_password; ?>">
-                <span class="help-block"><?php echo $usr_password_err; ?></span>
-            </div>
-            </tr>
-            
-            <tr>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Verify Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </tr>
-            
-            <tr>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            </tr>
-            <p>Already have an account? <a href="index.php">Login here</a>.</p>
-        </form>
-        </table>
+        <tr>
+        <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
+            <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>" placeholder="Email Address">
+            <span class="help-block"><?php echo $usr_email_err; ?></span>
+        </div>
+        </tr>
         
-    </div>    
-</body>
-</html>
-
+        <tr>
+        <div class="form-group <?php echo (!empty($usr_password_err)) ? 'has-error' : ''; ?>">
+            <input type="password" name="usr_password" class="form-control" value="<?php echo $usr_password; ?>" placeholder="Password">
+            <span class="help-block"><?php echo $usr_password_err; ?></span>
+        </div>
+        </tr>
+        
+        <tr>
+        <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+            <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>" placeholder="Confirm Password">
+            <span class="help-block"><?php echo $confirm_password_err; ?></span>
+        </tr>
+        
+        <tr>
+        <div class="form-group">
+            <input type="submit" class="btn login-btn" value="Submit">
+            <input type="reset" class="btn sign-up-btn" value="Reset">
+        </div>
+        </tr>
+        <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    </form>
+    </table>
+</div>
 <?php
-include 'pageelements/footer.php';
+include_once 'pageelements/footer.php';
 ?>

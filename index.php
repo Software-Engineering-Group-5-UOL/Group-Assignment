@@ -15,8 +15,8 @@ if ($redirected == 1) {
 }
  
 // Include config file
-include 'pageelements/header.php';
-require_once "php/db.php";
+require_once 'php/db.php';
+include_once 'pageelements/header.php';
  
 // Define variables and initialize with empty values
 $usr_email = $usr_password = "";
@@ -107,39 +107,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign In</title>
-</head>
-</head>
-<body>
-    <div align="center">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
-                <label>Email Address</label>
-                <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>">
-                <span class="help-block"><?php echo $usr_email_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($usr_password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="usr_password" class="form-control">
-                <span class="help-block"><?php echo $usr_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
-            </div>
-            <p>Forgotten your password? <a href="forgotten-password.php">Reset it here</a>.</p>
-            <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
-
-        </form>
-    </div>    
-</body>
-</html>
+<div class="ice-panel">
+    <h1 class="title text-center">Log in</h1>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
+            <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>" placeholder="Email address">
+            <span class="help-block"><?php echo $usr_email_err; ?></span>
+        </div>    
+        <div class="form-group <?php echo (!empty($usr_password_err)) ? 'has-error' : ''; ?>">
+            <input type="password" name="usr_password" class="form-control"  placeholder="Password">
+            <span class="help-block"><?php echo $usr_password_err; ?></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn login-btn" value="Login">
+        </div>
+        <p>Forgotten your password? <a href="forgotten-password.php">Reset it here</a>.</p>
+        <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
+    </form>
+</div>
 <?php
-include 'pageelements/footer.php';
+include_once 'pageelements/footer.php';
 ?>

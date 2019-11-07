@@ -11,7 +11,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 //check if the user has been redirected from account creation and present greeting message
 $redirected = htmlspecialchars($_GET["account"]);
 if ($redirected == 1) {
-    echo 'Your account has been created, please verify with the email sent to you before logging in.';
+     $error = '<h1 class=Your account has been created, please verify with the email sent to you before logging in.';
 }
  
 // Include config file

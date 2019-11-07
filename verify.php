@@ -57,16 +57,7 @@ else {
     echo '<p>Please try again later</p>';
 }
 
-
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Account Verification</title>
-</head>
-</html>
 <?php
 include 'pageelements/footer.php';
 ?>

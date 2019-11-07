@@ -30,18 +30,16 @@ if( $_GET["key"]) {
             
         if ($temptype == 2 && $tempuse == trim($_GET["key"])) {
             echo'
-                <div align="ice-panel">
+                <div class="ice-panel">
                 <h2>Reset Password</h2>
                 <p>Please fill out this form to reset your password.</p>
                 <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?key='.$verifylink.'" method="post">
                     <div>
-                        <label>New Password</label>
-                        <input type="password" name="new_password" class="form-control" value="'.$new_password.'">
+                        <input type="password" name="new_password" class="form-control" value="'.$new_password.'" placeholder ="New Password">
                         <span class="help-block"><?php echo $new_password_err; ?></span>
                     </div>
                     <div>
-                        <label>Confirm Password</label>
-                        <input type="password" name="confirm_password" class="form-control">
+                        <input type="password" name="confirm_password" class="form-control" placeholder ="Confirm Password">
                         <span class="help-block"><?php echo $confirm_password_err; ?></span>
                     </div>
                     <div class="form-group">

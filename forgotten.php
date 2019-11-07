@@ -36,7 +36,7 @@ if( $_GET["key"]) {
                 <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?key='.$verifylink.'" method="post">
                     <div>
                         <label>New Password</label>
-                        <input type="password" name="new_password" class="form-control" value="'.<?php echo $new_password; ?>.'">
+                        <input type="password" name="new_password" class="form-control" value="'.$new_password.'">
                         <span class="help-block"><?php echo $new_password_err; ?></span>
                     </div>
                     <div>

@@ -51,7 +51,7 @@ if( $_GET["key"]) {
                 </div>';
             } else{
                     echo '<h1>Your link is invalid</h1>
-                    <p>Please return home <a href=login.php>here</a>.';
+                    <p>Please return home <a href=index.php>here</a>.';
                 }
      
                 // Processing form data when form is submitted
@@ -92,7 +92,7 @@ if( $_GET["key"]) {
                             //execute statement
                             if(mysqli_stmt_execute($stmt)){
                                 // Clear the database fields that are for tempoary use
-                                $sql1 = "UPDATE users SET tempuse = NULL, temptype = NULL WHERE id = $id";
+                                $sql1 = "UPDATE users SET tempuse = NULL, temptype = NULL WHERE id = $id, usr_password = $usr_password";
                                 
                                 if (mysqli_query($link, $sql1)) {
                                     header("location: index.php");

@@ -116,7 +116,7 @@ if( $_GET["key"]) {
         }
     } else{
         echo '<h1>Your link is invalid</h1>
-            <p>Please return home <a href=login.php>here</a>.';
+            <p>Please return home <a href=index.php>here</a>.';
     }
 
 ?>

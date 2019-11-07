@@ -88,37 +88,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
  
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Forgotten Password</title>
-</head>
-</head>
-<body>
-    <div align="center">
-        <h2>Reset Password</h2>
-        <p>Please enter your email address to recieve a reset</p>
-        <!--Get users email address-->
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
-                <label>Email Address</label>
-                <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>">
-                <span class="help-block"><?php echo $usr_email_err; ?></span>
-            </div>    
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Send Code">
-            </div>
-        </form>
-            <p>Already know your password? <a href="index.php">Login here</a>.</p>
-            <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
-
-        
-    </div>    
-</body>
-</html>
+ <h2>Reset Password</h2>
+ <p>Please enter your email address to recieve a reset</p>
+ <!--Get users email address-->
+ <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+     <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
+         <label>Email Address</label>
+         <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>">
+         <span class="help-block"><?php echo $usr_email_err; ?></span>
+     </div>    
+     <div class="form-group">
+         <input type="submit" class="btn btn-primary" value="Send Code">
+     </div>
+ </form>
+ <p>Already know your password? <a href="index.php">Login here</a>.</p>
+ <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
 <?php
 include "pageelements/footer.php";
 ?>

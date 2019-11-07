@@ -17,7 +17,6 @@
     <header role="banner">
         <nav class="navbar container">
             <div class="navbar-brand" href="#">Headline Music</div>
-            <a href="logout.php">Sign Out of Your Account</a>
         </nav>
     </header>
     <main class="container">

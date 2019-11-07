@@ -101,8 +101,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          <input type="submit" class="btn sign-up-btn" value="Send Code">
      </div>
  </form>
- <p class="text-center">Already know your password? <a href="index.php">Login here</a>.</p>
- <p class="text-center">Don't have an account? <a href="signup.php">Sign up now</a>.</p>
+ <p class="text-center">Already know your password? <a href="index.php" class="text-white">Login here</a>.</p>
+ <p class="text-center">Don't have an account? <a href="signup.php" class="text-white">Sign up now</a>.</p>
 </div>
 <?php
 include "pageelements/footer.php";

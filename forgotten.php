@@ -83,7 +83,7 @@ if( $_GET["key"]) {
                         
                         if($stmt = mysqli_prepare($link, $sql)){
                             // Bind variables to the prepared statement as parameters
-                            mysqli_stmt_bind_param($stmt, "ssi", $param_usr_password, $param_id);
+                            mysqli_stmt_bind_param($stmt, "si", $param_usr_password, $param_id);
                             
                             // Set parameters
                             $param_usr_password = password_hash($new_password, PASSWORD_DEFAULT);

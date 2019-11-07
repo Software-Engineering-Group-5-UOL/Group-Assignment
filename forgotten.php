@@ -77,22 +77,20 @@ if( $_GET["key"]) {
                     // Check input errors before updating the database
                     if(empty($new_password_err) && empty($confirm_password_err)){
                         // Prepare an update statement
-                        $sql = "UPDATE users SET tempuse = ?, temptype = ?, usr_password = ? WHERE id = ?";
+                        $sql = "UPDATE users SET usr_password = ? WHERE id = ?";
                         
                         if($stmt = mysqli_prepare($link, $sql)){
                             // Bind variables to the prepared statement as parameters
-                            mysqli_stmt_bind_param($stmt, "iisi", $param_tempuse, $param_temptype, $param_usr_password, $param_id);
+                            mysqli_stmt_bind_param($stmt, "si", $param_usr_password, $param_id);
                             
                             // Set parameters
                             $param_usr_password = password_hash($new_password, PASSWORD_DEFAULT);
                             $param_id = $_SESSION["id"];
-                            $param_tempuse = NULL;
-                            $param_temptype = NULL;
                 
                             //execute statement
                             if(mysqli_stmt_execute($stmt)){
                                 // Clear the database fields that are for tempoary use
-                                $sql1 = "UPDATE users SET tempuse = $tempuse, temptype = $temptype, usr_password = $usr_password WHERE id = $id";
+                                $sql1 = "UPDATE users SET tempuse = NULL, temptype = NULL, usr_password = $usr_password WHERE id = $id";
                                 
                                 if (mysqli_query($link, $sql1)) {
                                     header("location: index.php");

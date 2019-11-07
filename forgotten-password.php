@@ -88,6 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
  
 ?>
+<div class="ice-panel">
  <h2>Reset Password</h2>
  <p>Please enter your email address to recieve a reset</p>
  <!--Get users email address-->
@@ -103,6 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  </form>
  <p>Already know your password? <a href="index.php">Login here</a>.</p>
  <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
+</div>
 <?php
 include "pageelements/footer.php";
 ?>

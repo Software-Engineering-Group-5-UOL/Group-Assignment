@@ -36,7 +36,7 @@ if( $_GET["key"]) {
                 <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?key='.$verifylink.'" method="post">
                     <div>
                         <label>New Password</label>
-                        <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
+                        <input type="password" name="new_password" class="form-control" value="'.<?php echo $new_password; ?>.'">
                         <span class="help-block"><?php echo $new_password_err; ?></span>
                     </div>
                     <div>
@@ -92,7 +92,7 @@ if( $_GET["key"]) {
                             //execute statement
                             if(mysqli_stmt_execute($stmt)){
                                 // Clear the database fields that are for tempoary use
-                                $sql1 = "UPDATE users SET tempuse = NULL, temptype = NULL WHERE id = $id, usr_password = $usr_password";
+                                $sql1 = "UPDATE users SET tempuse = NULL, temptype = NULL, usr_password = $usr_password WHERE id = $id";
                                 
                                 if (mysqli_query($link, $sql1)) {
                                     header("location: index.php");

@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 ?>
 <div class="ice-panel">
- <h1 class="title">Reset Password</h2>
+ <h1 class="title text-center">Reset Password</h2>
  <p class="text-center">Please enter your email address to recieve a reset</p>
  <!--Get users email address-->
  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

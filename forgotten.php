@@ -1,7 +1,7 @@
 <?php
 // Include config file
-include 'pageelements/header.php';
 require_once "php/db.php";
+include 'pageelements/header.php';
  
 // Define variables and initialize with empty values
 $new_password = $confirm_password = "";
@@ -30,7 +30,7 @@ if( $_GET["key"]) {
             
         if ($temptype == 2 && $tempuse == trim($_GET["key"])) {
             echo'
-                <div align="center">
+                <div align="ice-panel">
                 <h2>Reset Password</h2>
                 <p>Please fill out this form to reset your password.</p>
                 <form action="" method="post">
@@ -120,15 +120,7 @@ if( $_GET["key"]) {
     }
 
 ?>
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Change Password</title>
-</head>
 
-</html>
 <?php
 include "pageelements/footer.php";
 ?>

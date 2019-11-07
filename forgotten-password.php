@@ -89,21 +89,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 ?>
 <div class="ice-panel">
- <h2>Reset Password</h2>
- <p>Please enter your email address to recieve a reset</p>
+ <h1 class="title">Reset Password</h2>
+ <p class="text-center">Please enter your email address to recieve a reset</p>
  <!--Get users email address-->
  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
      <div class="form-group <?php echo (!empty($usr_email_err)) ? 'has-error' : ''; ?>">
-         <label>Email Address</label>
-         <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>">
+         <input type="text" name="usr_email" class="form-control" value="<?php echo $usr_email; ?>" placeholder="Email Adress">
          <span class="help-block"><?php echo $usr_email_err; ?></span>
      </div>    
      <div class="form-group">
          <input type="submit" class="btn sign-up-btn" value="Send Code">
      </div>
  </form>
- <p>Already know your password? <a href="index.php">Login here</a>.</p>
- <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
+ <p class="text-center">Already know your password? <a href="index.php">Login here</a>.</p>
+ <p class="text-center">Don't have an account? <a href="signup.php">Sign up now</a>.</p>
 </div>
 <?php
 include "pageelements/footer.php";

@@ -33,7 +33,7 @@ if( $_GET["key"]) {
                 <div align="ice-panel">
                 <h2>Reset Password</h2>
                 <p>Please fill out this form to reset your password.</p>
-                <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+                <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?key='.$verifylink.'" method="post">
                     <div>
                         <label>New Password</label>
                         <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">

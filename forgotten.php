@@ -95,7 +95,7 @@ if( $_GET["key"]) {
                                 $sql1 = "UPDATE users SET tempuse = NULL, temptype = NULL WHERE id = $id";
                                 
                                 if (mysqli_query($link, $sql1)) {
-                                    header("location: login.php");
+                                    header("location: index.php");
                                 } else {
                                     echo "Error updating record: " . mysqli_error($link);
                                 }

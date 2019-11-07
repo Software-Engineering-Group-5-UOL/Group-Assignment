@@ -98,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          <span class="help-block"><?php echo $usr_email_err; ?></span>
      </div>    
      <div class="form-group">
-         <input type="submit" class="btn btn-primary" value="Send Code">
+         <input type="submit" class="btn sign-up-btn" value="Send Code">
      </div>
  </form>
  <p>Already know your password? <a href="index.php">Login here</a>.</p>

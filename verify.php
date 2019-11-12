@@ -29,8 +29,10 @@ if( $_GET["verify"]) {
             $sql1 = "UPDATE users SET verified = '1', tempuse = NULL, temptype = NULL WHERE id = $id";
             
             if (mysqli_query($link, $sql1)) {
+            	echo '<div class"ice-panel">'
                 echo '<h1>Your account has been verified.</h1>';
-                echo '<p>You may now close this page</p>';
+                echo '<p>One more step. You need to login to Spotify after the authentification to finish the registration.</p>';
+                echo '</div>'
             } else {
                 echo "Error updating record: " . mysqli_error($link);
             }

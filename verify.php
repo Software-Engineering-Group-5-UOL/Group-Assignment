@@ -14,42 +14,46 @@ if( $_GET["verify"]) {
         $param_username = trim($_GET["verify"]);
         
         /* execute query */
-        if(mysqli_stmt_execute($stmt)){    
-            
-        /* store result */
-        $result = mysqli_stmt_store_result($stmt);
-        if(mysqli_stmt_num_rows($stmt) == 1){                    
-            // Bind result variables
-            mysqli_stmt_bind_result($stmt, $temptype, $tempuse, $id);
-            
-        if(mysqli_stmt_fetch($stmt)){
+        if(mysqli_stmt_execute($stmt)) {    
 
-        if ($verified == 0 && $temptype == 1) {
-            
-            $sql1 = "UPDATE users SET verified = '1', tempuse = NULL, temptype = NULL WHERE id = $id";
-            
-            if (mysqli_query($link, $sql1)) {
-            	echo '<div class"ice-panel">'
-                echo '<h1>Your account has been verified.</h1>';
-                echo '<p>One more step. You need to login to Spotify after the authentification to finish the registration.</p>';
-                echo '</div>'
-            } else {
-                echo "Error updating record: " . mysqli_error($link);
+            /* store result */
+            $result = mysqli_stmt_store_result($stmt);
+
+            if(mysqli_stmt_num_rows($stmt) == 1) {   
+
+                // Bind result variables
+                mysqli_stmt_bind_result($stmt, $temptype, $tempuse, $id);
+                
+                if(mysqli_stmt_fetch($stmt)) {
+
+                    if ($verified == 0 && $temptype == 1) {
+                        
+                        $sql1 = "UPDATE users SET verified = '1', tempuse = NULL, temptype = NULL WHERE id = $id";
+                        
+                        if (mysqli_query($link, $sql1)) {
+                            echo '<div class"ice-panel">';
+                            echo '<h1>Your account has been verified.</h1>';
+                            echo '<p>One more step. You need to login to Spotify after the authentification to finish the registration.</p>';
+                            echo '</div>';
+                        } else {
+                            echo "Error updating record: " . mysqli_error($link);
+                        }
+
+                    } elseif ($verified == 1) {
+                        echo '<h1>Your account is already verified.</h1>';
+                        echo '<p>You may now close this page</p>';
+                    } else {
+                        echo '<h1>There is a problem with your link.</h1>';
+                        echo '<p>Please try again later</p>';
+                    }
+                }
+                
+                /* free result */
+                mysqli_stmt_free_result($stmt);
             }
-        } elseif ($verified == 1) {
-            echo '<h1>Your account is already verified.</h1>';
-            echo '<p>You may now close this page</p>';
-        } else {
-            echo '<h1>There is a problem with your link.</h1>';
-            echo '<p>Please try again later</p>';
-        }
-        }
-        
-        /* free result */
-        mysqli_stmt_free_result($stmt);
         }
     }
-}
+
     /* close statement */
     mysqli_stmt_close($stmt);
 }

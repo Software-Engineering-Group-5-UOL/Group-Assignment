@@ -34,6 +34,7 @@ if( $_GET["verify"]) {
                             echo '<div class"ice-panel">';
                             echo '<h1>Thank you for verifying you email address.</h1>';
                             echo '<p>Please link your spotify account to complete registration.</p>';
+                            include 'spotifyapp/authorization_code/public/index.html';
                             echo '</div>';
                         } else {
                             echo "Error updating record: " . mysqli_error($link);
@@ -63,7 +64,6 @@ else {
     echo '<p>Please try again later</p>';
 }
 
-include 'spotifyapp/authorization_code/public/index.html';
 include 'pageelements/footer.php';
 
 ?>

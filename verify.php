@@ -1,5 +1,5 @@
 <?php
-// Include config file
+// Include db and header files
 include 'pageelements/header.php';
 require_once "php/db.php";
 
@@ -32,8 +32,8 @@ if( $_GET["verify"]) {
                         
                         if (mysqli_query($link, $sql1)) {
                             echo '<div class"ice-panel">';
-                            echo '<h1>Your account has been verified.</h1>';
-                            echo '<p>One more step. You need to login to Spotify after the authentification to finish the registration.</p>';
+                            echo '<h1>Thank you for verifying you email address.</h1>';
+                            echo '<p>Please link your spotify account to complete registration.</p>';
                             echo '</div>';
                         } else {
                             echo "Error updating record: " . mysqli_error($link);
@@ -63,7 +63,7 @@ else {
     echo '<p>Please try again later</p>';
 }
 
-?>
-<?php
+include 'spotifyapp/authorization_code/public/index.html';
 include 'pageelements/footer.php';
+
 ?>

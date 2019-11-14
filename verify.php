@@ -28,7 +28,7 @@ if( $_GET["verify"]) {
 
                     if ($verified == 0 && $temptype == 1) {
                         
-                        $sql1 = "UPDATE users SET verified = '1', tempuse = NULL, temptype = NULL WHERE id == $id ";
+                        $sql1 = "UPDATE users SET verified = '1', tempuse = NULL, temptype = NULL WHERE id = $id ";
                         
                         if (mysqli_query($link, $sql1)) {
                             echo '<div class"ice-panel">';

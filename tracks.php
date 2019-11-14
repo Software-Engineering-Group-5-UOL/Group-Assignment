@@ -24,7 +24,7 @@ $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
     <a href="logout.php" class="btn login-btn">Sign Out of Your Account</a>
     <nav aria-label="Songs per track">
       <ul class="pagination justify-content-center">
-        <li class="page-item <?php ($nrSongs == 5) ? 'disabled active' : ''; ?>" >
+        <li class="page-item <?php echo $nrSongs; ($nrSongs == 5) ? 'disabled active' : ''; ?>" >
             <a class="page-link" href="tracks.php?s=5" <?php ($nrSongs == 5) ? 'tabindex="-1"' : ''; ?> >5</a>
         </li>
         <li class="page-item <?php ($nrSongs == 10) ? 'disabled active' : ''; ?>" >

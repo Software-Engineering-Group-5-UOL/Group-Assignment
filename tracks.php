@@ -12,7 +12,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: index.php");
     exit;
 }
-if(!isset($_SESSION["spotifytoken"]) || empty($_SESSION["spotifytoken"])){
+if(!isset($_GET["code"]) || empty($_GET["code"])){
     header("location: https://accounts.spotify.com/authorize?client_id=".$clientid."&response_type=code&redirect_uri=https%3A%2F%2Fheadlinemusicapp.co.uk%2Ftracks.php&scope=user-read-private%20playlist-modify-private&state=".$session_id);
 }
 $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;

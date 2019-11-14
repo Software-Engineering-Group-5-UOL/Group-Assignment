@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($usr_email_err) && empty($usr_password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, usr_email, usr_fname, usr_lname, usr_password, verified FROM users WHERE usr_email = ?";
+        $sql = "SELECT id, usr_email, usr_fname, usr_lname, usr_password, verified, token FROM users WHERE usr_email = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if usr_email exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $usr_email, $usr_fname, $usr_lname, $hashed_password, $verified);
+                    mysqli_stmt_bind_result($stmt, $id, $usr_email, $usr_fname, $usr_lname, $hashed_password, $verified, $token);
                     if(mysqli_stmt_fetch($stmt)){
                         //check if the 
                         if($verified == 1){
@@ -74,6 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 $_SESSION["usr_email"] = $usr_email;
                                 $_SESSION["usr_fname"] = $usr_fname;
                                 $_SESSION["usr_lname"] = $usr_lname;
+                                $_SESSION["token"] = $token;
                                 
                                 // Redirect user to tracks page
                                 header("location: tracks.php");

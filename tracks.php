@@ -13,7 +13,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 if(!isset($_SESSION["spotifytoken"]) || empty($_SESSION["spotifytoken"])){
-    header("https://accounts.spotify.com/authorize?client_id=".$clientid."&response_type=code&redirect_uri=https%3A%2F%2Fheadlinemusicapp.co.uk%2Ftracks&scope=user-read-private%20playlist-modify-private&state=".$session_id);
+    header("location: https://accounts.spotify.com/authorize?client_id=".$clientid."&response_type=code&redirect_uri=https%3A%2F%2Fheadlinemusicapp.co.uk%2Ftracks&scope=user-read-private%20playlist-modify-private&state=".$session_id);
 }
 else {
    if(isset($_GET['code'])) {

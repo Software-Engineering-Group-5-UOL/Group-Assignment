@@ -12,15 +12,36 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: index.php");
     exit;
 }
-if(!isset($_GET["code"]) || empty($_GET["code"])){
+if((!isset($_GET["token"]) || empty($_GET["token"])) || (!isset($_GET["code"]) || empty($_GET["code"]))){
     header("location: https://accounts.spotify.com/authorize?client_id=".$clientid."&response_type=code&redirect_uri=https%3A%2F%2Fheadlinemusicapp.co.uk%2Ftracks.php&scope=user-read-private%20playlist-modify-private&state=".$session_id);
+} else {
+    if(isset($_GET["code"] && !empty($_GET["code"])) {
+       $url = 'https://accounts.spotify.com/api/token';
+       $data = array('grant_type' => 'authorization_code', 'code' => 'https%3A%2F%2Fheadlinemusicapp.co.uk%2Ftracks.php', 'redirect_uri' => 'https%3A%2F%2Fheadlinemusicapp.co.uk%2Ftracks.php');
+
+       // use key 'http' even if you send the request to https://...
+       $options = array(
+           'http' => array(
+               'header'  => "Content-type: application/x-www-form-urlencoded\r\n"
+                ."Authorization: Basic ".$clientid.":".$clientsecret."\r\n",
+               'method'  => 'POST',
+               'content' => http_build_query($data)
+           )
+       );
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+       if ($result === FALSE) { /* Handle error */ }
+    } elseif(isset($_GET["token"] && !empty($_GET["token"])) {
+       
+    }
+
 }
 $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
 ?>
 <div class="track-wrapper">
     <h1 class="title text-center">New Songs</h1>
     <a href="logout.php" class="btn login-btn">Sign Out of Your Account</a>
-    <h2><?php echo $code; ?></h2>
+    <h2><?php echo $result; ?></h2>
     <nav aria-label="Songs per track">
       <ul class="pagination justify-content-center mt-3">
         <li class="page-item <?php echo ($nrSongs == 5) ? 'disabled active' : ''; ?>" >

@@ -25,13 +25,13 @@ $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
     <nav aria-label="Songs per track">
       <ul class="pagination justify-content-center">
         <li class="page-item <?php echo ($nrSongs == 5) ? 'disabled active' : ''; ?>" >
-            <a class="page-link" href="tracks.php?s=5" <?php ($nrSongs == 5) ? 'tabindex="-1"' : ''; ?> >5</a>
+            <a class="page-link" href="tracks.php?s=5" <?php echo ($nrSongs == 5) ? 'tabindex="-1"' : ''; ?> >5</a>
         </li>
         <li class="page-item <?php echo ($nrSongs == 10) ? 'disabled active' : ''; ?>" >
-            <a class="page-link" href="tracks.php?s=10" <?php ($nrSongs == 10) ? 'tabindex="-1"' : ''; ?> >10</a>
+            <a class="page-link" href="tracks.php?s=10" <?php echo ($nrSongs == 10) ? 'tabindex="-1"' : ''; ?> >10</a>
         </li>
         <li class="page-item <?php echo ($nrSongs == 15) ? 'disabled active' : ''; ?>" >
-            <a class="page-link" href="tracks.php?s=15" <?php ($nrSongs == 15) ? 'tabindex="-1"' : ''; ?> >15</a>
+            <a class="page-link" href="tracks.php?s=15" <?php echo ($nrSongs == 15) ? 'tabindex="-1"' : ''; ?> >15</a>
         </li>
       </ul>
     </nav>

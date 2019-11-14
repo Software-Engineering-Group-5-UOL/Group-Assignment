@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if usr_email exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $usr_email, $usr_fname, $usr_lname, $hashed_password, $verified, $spotifytoken);
+                    mysqli_stmt_bind_result($stmt, $id, $usr_email, $usr_fname, $usr_lname, $hashed_password, $verified);
                     if(mysqli_stmt_fetch($stmt)){
                         //check if the 
                         if($verified == 1){
@@ -74,7 +74,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 $_SESSION["usr_email"] = $usr_email;
                                 $_SESSION["usr_fname"] = $usr_fname;
                                 $_SESSION["usr_lname"] = $usr_lname;
-                                $_SESSION["spotifytoken"] = $spotifytoken;
                                 
                                 // Redirect user to tracks page
                                 header("location: tracks.php");

@@ -17,7 +17,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 // }
 // else {
 // }
-$nrSongs = (isset($_GET['s'])) ? $_GET['s'] : 5;
+$nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
 ?>
 <div class="track-wrapper">
     <h1 class="title text-center">New Songs</h1>

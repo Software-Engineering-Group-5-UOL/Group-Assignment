@@ -32,7 +32,8 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
         );
         $context  = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
-        if ($result === FALSE) { /* Handle error */ }
+        if ($result === FALSE) { echo "An error has happened."; }
+        else {echo $result;}
 }
  //} elseif(isset($_GET["token"] && !empty($_GET["token"])) {
  //  echo "I'm here last else!!";

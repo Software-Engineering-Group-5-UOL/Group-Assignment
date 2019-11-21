@@ -25,7 +25,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
         $options = array(
             'http' => array(
                 'header'  => "Content-type: application/x-www-form-urlencoded\r\n"
-                 ."Authorization: Basic ".$clientid.":".$clientsecret."\r\n",
+                 ."Authorization: Basic ".$clientid."\r\n",
                 'method'  => 'POST',
               'content' => http_build_query($data)
             )

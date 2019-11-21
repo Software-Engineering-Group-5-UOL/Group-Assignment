@@ -15,7 +15,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 if((!isset($_GET["token"]) || empty($_GET["token"])) || (!isset($_GET["code"]) || empty($_GET["code"]))){
      header("location: https://accounts.spotify.com/authorize?client_id=".$clientid."&response_type=code&redirect_uri=https%3A%2F%2Fheadlinemusicapp.co.uk%2Ftracks.php&scope=user-read-private%20playlist-modify-private&state=".$session_id);
 } else {
-     if(isset($_GET["code"] && !empty($_GET["code"])) {
+     echo isset($_GET["code"]);
+     if(isset($_GET["code"]) && !empty($_GET["code"])) {
         //$url = 'https://accounts.spotify.com/api/token';
         $code = $_GET["code"];
         echo $code;
@@ -33,9 +34,11 @@ if((!isset($_GET["token"]) || empty($_GET["token"])) || (!isset($_GET["code"]) |
 //        $context  = stream_context_create($options);
 //        $result = file_get_contents($url, false, $context);
 //        if ($result === FALSE) { /* Handle error */ }
-//     } elseif(isset($_GET["token"] && !empty($_GET["token"])) {
-       
-//     }
+     } elseif(isset($_GET["token"] && !empty($_GET["token"])) {
+       echo "I'm here last else!!";
+     } else {
+       echo "I'm here last else!!";
+     }
 
  }
 $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;

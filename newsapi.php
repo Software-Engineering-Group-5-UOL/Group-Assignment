@@ -1,5 +1,9 @@
-<?php 
-require 'vendor/autoload.php';
+<?php
+require 'NewsAPI/vendor/autoload.php';
+require_once 'php/db.php';
+//includes
+include_once 'pageelements/header.php';
+
 
 use jcobhams\NewsApi\NewsApi;
 

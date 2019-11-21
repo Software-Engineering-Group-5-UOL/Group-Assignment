@@ -23,12 +23,12 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
       'Authorization: Basic '.base64_encode($clientid).":".base64_encode($clientsecret)
     );
     $data = array('grant_type' => 'authorization_code', 'code' => $code, 'redirect_uri' => 'https://headlinemusicapp.co.uk/tracks.php');
-    echo json_encode($data);
+    echo urlencode($data);
  
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));  //Post Fields
+    curl_setopt($ch, CURLOPT_POSTFIELDS, urlencode($data));  //Post Fields
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     $server_output = curl_exec($ch);

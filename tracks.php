@@ -37,7 +37,7 @@ if((!isset($_GET["token"]) || empty($_GET["token"])) && (!isset($_GET["code"]) |
  //  echo "I'm here last else!!";
  //} else {
   // echo "I'm here last else!!";
- }
+ //}
 $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
 ?>
 <div class="track-wrapper">

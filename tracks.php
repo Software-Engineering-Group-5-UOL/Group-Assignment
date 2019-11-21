@@ -20,7 +20,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     $code = $_GET["code"];
     $headers = array(
       'Content-Type: application/x-www-form-urlencoded',
-      'Authorization: Basic ".base64_encode($clientid).":".base64_encode($clientsecret)
+      'Authorization: Basic '.base64_encode($clientid).":".base64_encode($clientsecret)
     );
     $data = array('grant_type' => 'authorization_code', 'code' => $code, 'redirect_uri' => 'https://headlinemusicapp.co.uk/tracks.php');
     
@@ -34,7 +34,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     $curl_errno = curl_errno($ch);
     $curl_error = curl_error($ch);
 
-    curl_close ($ch);
+    curl_close($ch);
     if ($curl_errno > 0) { echo $curl_error; }
         else {echo $server_output;}
 }

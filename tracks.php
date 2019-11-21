@@ -27,7 +27,8 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS,$data);  //Post Fields
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);  //Post Fields
+    echo $data; 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     $server_output = curl_exec($ch);

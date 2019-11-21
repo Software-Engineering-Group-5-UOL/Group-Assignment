@@ -20,7 +20,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     $code = $_GET["code"];
     $headers = array(
       'Content-Type: application/x-www-form-urlencoded',
-      'Authorization: Basic '.$clientid.":".$clientsecret
+      'Authorization: Basic '.base64_encode($clientid.":".$clientsecret)
     );
     $data = array('grant_type' => 'authorization_code', 'code' => $code, 'redirect_uri' => 'https://headlinemusicapp.co.uk/tracks.php');
  

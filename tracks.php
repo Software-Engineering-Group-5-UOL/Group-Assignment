@@ -18,22 +18,25 @@ if((!isset($_GET["token"]) || empty($_GET["token"])) && (!isset($_GET["code"]) |
 elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     $url = 'https://accounts.spotify.com/api/token';
     $code = $_GET["code"];
+    $headers = array(
+      'Content-Type: application/x-www-form-urlencoded',
+      'Authorization: Basic ".base64_encode($clientid).":".base64_encode($clientsecret)
+    );
+    $data = array('grant_type' => 'authorization_code', 'code' => $code, 'redirect_uri' => 'https://headlinemusicapp.co.uk/tracks.php');
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$data);  //Post Fields
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $server_output = curl_exec($ch);
+    $curl_errno = curl_errno($ch);
+    $curl_error = curl_error($ch);
 
-       $data = array('grant_type' => 'authorization_code', 'code' => $code, 'redirect_uri' => 'https://headlinemusicapp.co.uk/tracks.php');
-
-        // use key 'http' even if you send the request to https://...
-        $options = array(
-            'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n"
-                 ."Authorization: Basic ".base64_encode($clientid).":".base64_encode($clientsecret)."\r\n",
-                'method'  => 'POST',
-              'content' => http_build_query($data)
-            )
-        );
-        $context  = stream_context_create($options);
-        $result = file_get_contents($url, false, $context);
-        if ($result === FALSE) { echo "An error has happened."; }
-        else {echo $result;}
+    curl_close ($ch);
+    if ($curl_errno > 0) { echo $curl_error; }
+        else {echo $server_output;}
 }
  //} elseif(isset($_GET["token"] && !empty($_GET["token"])) {
  //  echo "I'm here last else!!";

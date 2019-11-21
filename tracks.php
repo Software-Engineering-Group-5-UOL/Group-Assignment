@@ -18,6 +18,7 @@ if((!isset($_GET["token"]) || empty($_GET["token"])) || (!isset($_GET["code"]) |
      if(isset($_GET["code"] && !empty($_GET["code"])) {
         $url = 'https://accounts.spotify.com/api/token';
         $code = $_GET["code"];
+        echo $code;
 //        $data = array('grant_type' => 'authorization_code', 'code' => $code, 'redirect_uri' => 'https://headlinemusicapp.co.uk/tracks.php');
 
 //        // use key 'http' even if you send the request to https://...

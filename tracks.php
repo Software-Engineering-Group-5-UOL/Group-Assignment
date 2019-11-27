@@ -38,10 +38,9 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     if ($curl_errno > 0) { 
        echo $curl_error; }
     else {
-       echo $_POST['refresh_token'].'\n';
-       //$server_output = $server_output;
-       $_SESSION['refresh_token'] = $server_output['refresh_token'];
-       echo $server_output['refresh_token'];
+       $data = json_decode($server_output,true);
+       $_SESSION['refresh_token'] = $data['refresh_token'];
+       echo $data['refresh_token'];
        //$scope = $server_output['scope'];
        //$access_token = $server_output['access_token'];     
        //$nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;

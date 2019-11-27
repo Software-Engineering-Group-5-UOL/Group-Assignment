@@ -61,9 +61,9 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
        if ($curl_errno > 0) { 
          echo $curl_error; }
        else {
+         echo $server_output;
          $server_output = json_decode ($server_output);
          $tracks = $server_output['albums'];
-         echo $server_output;
        }
      }
 }

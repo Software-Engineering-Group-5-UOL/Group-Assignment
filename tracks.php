@@ -42,7 +42,6 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
        $_SESSION['refresh_token'] = $server_output['refresh_token'];
        $scope = $server_output['scope'];
        $access_token = $server_output['access_token'];     
-       echo $access_token.'/n';
        $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
        $url = 'https://api.spotify.com/v1/search';
        $headers = array(
@@ -64,7 +63,6 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
        else {
          $server_output = json_decode ($server_output);
          $tracks = $server_output['albums'];
-         echo $server_output;
          echo $tracks;
        }
      }

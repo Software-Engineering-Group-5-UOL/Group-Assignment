@@ -38,33 +38,34 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     if ($curl_errno > 0) { 
        echo $curl_error; }
     else {
+       echo $_POST['refresh_token'];
        $server_output = json_decode($server_output);
-       echo $server_output;
        $_SESSION['refresh_token'] = $server_output['refresh_token'];
-       $scope = $server_output['scope'];
-       $access_token = $server_output['access_token'];     
-       $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
-       $url = 'https://api.spotify.com/v1/search';
-       $headers = array(
-        'Authorization: Bearer '.$access_token
-      );
-       $data = array('q' => 'news', 'type' => 'album', 'limit' => $nrSongs);
+       echo $server_output['refresh_token'];
+       //$scope = $server_output['scope'];
+       //$access_token = $server_output['access_token'];     
+       //$nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
+       //$url = 'https://api.spotify.com/v1/search';
+       //$headers = array(
+       // 'Authorization: Bearer '.$access_token
+      //);
+       //$data = array('q' => 'news', 'type' => 'album', 'limit' => $nrSongs);
 
-       $ch = curl_init();
-       curl_setopt($ch, CURLOPT_URL, $url);
-       curl_setopt($ch, CURLOPT_GET, 1);
-       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-       $server_output = curl_exec($ch);
-       $curl_errno = curl_errno($ch);
-       $curl_error = curl_error($ch);
+       //$ch = curl_init();
+       //curl_setopt($ch, CURLOPT_URL, $url);
+       //curl_setopt($ch, CURLOPT_GET, 1);
+       //curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+       //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       //curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+       //$server_output = curl_exec($ch);
+       //$curl_errno = curl_errno($ch);
+       //$curl_error = curl_error($ch);
        if ($curl_errno > 0) { 
          echo $curl_error; }
        else {
          echo $server_output;
-         $server_output = json_decode($server_output);
-         $tracks = $server_output['albums'];
+         //$server_output = json_decode($server_output);
+         //$tracks = $server_output['albums'];
        }
      }
 }

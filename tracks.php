@@ -38,7 +38,8 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     if ($curl_errno > 0) { 
        echo $curl_error; }
     else {
-       $server_output = json_decode ($server_output);
+       $server_output = json_decode($server_output);
+       echo $server_output;
        $_SESSION['refresh_token'] = $server_output['refresh_token'];
        $scope = $server_output['scope'];
        $access_token = $server_output['access_token'];     
@@ -62,7 +63,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
          echo $curl_error; }
        else {
          echo $server_output;
-         $server_output = json_decode ($server_output);
+         $server_output = json_decode($server_output);
          $tracks = $server_output['albums'];
        }
      }

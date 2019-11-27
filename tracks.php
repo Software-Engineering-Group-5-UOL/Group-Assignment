@@ -40,25 +40,24 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
     else {
        $data = json_decode($server_output,true);
        $_SESSION['refresh_token'] = $data['refresh_token'];
-       echo $data['refresh_token'];
-       //$scope = $server_output['scope'];
-       //$access_token = $server_output['access_token'];     
-       //$nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
-       //$url = 'https://api.spotify.com/v1/search';
-       //$headers = array(
-       // 'Authorization: Bearer '.$access_token
-      //);
-       //$data = array('q' => 'news', 'type' => 'album', 'limit' => $nrSongs);
+       $scope = $data['scope'];
+       $access_token = $data['access_token'];     
+       $nrSongs = (isset($_GET['s'])) ? (int)$_GET['s'] : 5;
+       $url = 'https://api.spotify.com/v1/search';
+       $headers = array(
+       'Authorization: Bearer '.$access_token
+      );
+       $body = array('q' => 'news', 'type' => 'album', 'limit' => $nrSongs);
 
-       //$ch = curl_init();
-       //curl_setopt($ch, CURLOPT_URL, $url);
-       //curl_setopt($ch, CURLOPT_GET, 1);
-       //curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-       //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-       //curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-       //$server_output = curl_exec($ch);
-       //$curl_errno = curl_errno($ch);
-       //$curl_error = curl_error($ch);
+       $ch = curl_init();
+       curl_setopt($ch, CURLOPT_URL, $url);
+       curl_setopt($ch, CURLOPT_GET, 1);
+       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($body));
+       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+       $server_output = curl_exec($ch);
+       $curl_errno = curl_errno($ch);
+       $curl_error = curl_error($ch);
        if ($curl_errno > 0) { 
          echo $curl_error; }
        else {

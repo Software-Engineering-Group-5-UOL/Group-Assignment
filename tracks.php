@@ -39,7 +39,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
        echo $curl_error; }
     else {
        echo $_POST['refresh_token'];
-       $server_output = json_decode($server_output);
+       $server_output = $server_output;
        $_SESSION['refresh_token'] = $server_output['refresh_token'];
        echo $server_output['refresh_token'];
        //$scope = $server_output['scope'];

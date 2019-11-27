@@ -46,7 +46,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
        $headers = array(
         'Authorization: Bearer '.$access_token
       );
-       $data = array('q' => 'news', 'type' => 'track', 'limit' => $nrSongs);
+       $data = array('q' => 'news', 'type' => 'album', 'limit' => $nrSongs);
 
        $ch = curl_init();
        curl_setopt($ch, CURLOPT_URL, $url);
@@ -60,7 +60,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
        if ($curl_errno > 0) { 
          echo $curl_error; }
        else {
-         $tracks = $server_output['tracks'];
+         $tracks = $server_output['albums'];
          echo $server_output;
          echo $tracks;
        }

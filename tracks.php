@@ -63,7 +63,7 @@ elseif(isset($_GET["code"]) && !empty($_GET["code"])) {
        else {
          $server_output = json_decode ($server_output);
          $tracks = $server_output['albums'];
-         echo $tracks;
+         echo $server_output;
        }
      }
 }
